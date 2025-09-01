@@ -3,6 +3,7 @@
 class Creator
 {
     public $matches;
+    public $name; // Declare the property to fix the deprecation notice
 
     public function changeUrl()
     {

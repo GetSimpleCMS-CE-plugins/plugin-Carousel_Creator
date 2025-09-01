@@ -9,13 +9,13 @@
 
 	<li class="list-item">
 		<div class="title">
-			<?php echo i18n_r('carouselCreator/LANG_Name'); ?>
+			<b><?php echo i18n_r('carouselCreator/LANG_Name'); ?></b>
 		</div>
-		<div class="shortcode">
-			<?php echo i18n_r('carouselCreator/LANG_Shortcode'); ?>
+		<div>
+			<b><?php echo i18n_r('carouselCreator/LANG_Shortcode'); ?></b>
 		</div>
 		<div class="list-btn">
-			<?php echo i18n_r('carouselCreator/LANG_Edit'); ?>
+			<?php //echo i18n_r('carouselCreator/LANG_Edit'); ?>
 		</div>
 	</li>
 
@@ -26,10 +26,10 @@
 		echo '
 		<li class="list-item">
 			<div class="title">
-				<b>' . $name . '</b>
+				' . $name . '
 			</div>
 
-			<div class="shortcode">
+			<div class="cke">
 				<code>[% carousel=' . $name . ' %]</code>
 			</div>
 
