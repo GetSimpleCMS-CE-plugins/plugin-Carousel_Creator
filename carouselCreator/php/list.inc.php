@@ -29,8 +29,9 @@
 				' . $name . '
 			</div>
 
-			<div class="cke">
-				<code>[% carousel=' . $name . ' %]</code>
+			<div >
+				<code class="cke">[% carousel=' . $name . ' %]</code><br>
+				<code class="tpl">&lt;?php runCarousel(\'' . $name . '\');?></code>
 			</div>
 
 			<div class="list-btn">
