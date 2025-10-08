@@ -1,12 +1,11 @@
 <?php
-
 	include('../../../gsconfig.php');
 	$admin = defined('GSADMIN') ? GSADMIN : 'admin';
-	include("../../../${admin}/inc/common.php");
+	include("../../../".$admin."/inc/common.php");
 	$loggedin = cookie_check();
 	if (!$loggedin) die("Not logged in!");
 	if (!defined('IN_GS')) {
-	  die('you cannot load this page directly.');
+		die('you cannot load this page directly.');
 	}
 
 	i18n_merge('i18n_gallery', substr($LANG, 0, 2));
@@ -53,19 +52,19 @@
 	while ($file = readdir($dir_handle)) {
 	  if ($file == "." || $file == ".." || $file == ".htaccess") {
 		// not a upload file
-	  } elseif (is_dir($path . $file)) {
-		$dirsArray[$dircount]['name'] = $file;
-		$dircount++;
-	  } else {
-		$ext = @strtolower(substr($file, strrpos($file, '.') + 1));
-		if ($ext == 'jpg' || $ext == 'jpeg' || $ext == 'gif' || $ext == 'png' || $ext == 'webp') {
-		  $ss = @stat($path . $file);
-		  list($width, $height) = @getimagesize($path . $file);
-		  $filesArray[] = ['name' => $file, 'date' => @date('M j, Y', $ss['ctime']), 'size' => fSize($ss['size']), 'bytes' => $ss['size'], 'width' => $width, 'height' => $height, 'title' => @$info['title'], 'tags' => @$info['tags'], 'description' => @$info['description'], 'debug' => @$info['debug']];
-		  $totalsize = $totalsize + $ss['size'];
-		  $count++;
+		} elseif (is_dir($path . $file)) {
+			$dirsArray[$dircount]['name'] = $file;
+			$dircount++;
+		} else {
+			$ext = @strtolower(substr($file, strrpos($file, '.') + 1));
+				if ($ext == 'jpg' || $ext == 'jpeg' || $ext == 'gif' || $ext == 'png' || $ext == 'webp') {
+				$ss = @stat($path . $file);
+				list($width, $height) = @getimagesize($path . $file);
+				$filesArray[] = ['name' => $file, 'date' => @date('M j, Y', $ss['ctime']), 'size' => fSize($ss['size']), 'bytes' => $ss['size'], 'width' => $width, 'height' => $height, 'title' => @$info['title'], 'tags' => @$info['tags'], 'description' => @$info['description'], 'debug' => @$info['debug']];
+				$totalsize = $totalsize + $ss['size'];
+				$count++;
+			}
 		}
-	  }
 	}
 	$filesSorted = subval_sort($filesArray, 'name');
 	$dirsSorted = subval_sort($dirsArray, 'name');
