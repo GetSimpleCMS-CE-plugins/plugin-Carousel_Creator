@@ -10,7 +10,7 @@ i18n_merge('carouselCreator') || i18n_merge('carouselCreator', 'en_US');
 register_plugin(
 	$thisfile, //Plugin id
 	'carouselCreator',   //Plugin name
-	'4.1',     //Plugin version
+	'4.2',     //Plugin version
 	'Multicolor',  //Plugin author
 	'https://paypal.me/multicol0r', //author website
 	i18n_r('carouselCreator/LANG_Description'), //Plugin description
